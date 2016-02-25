@@ -1,0 +1,42 @@
+{
+	"manifest_version": 2,
+	"name": "__MSG_extName__",
+    "version": "0.1",
+
+	"default_locale": "en",
+    "description": "__MSG_extDescription__",
+	"icons": {
+      "128": "images/128.png",
+      "16": "images/16.png",
+      "48": "images/48.png"
+	},
+   
+    "browser_action": {
+        "default_icon": "icon.png"
+    },
+
+	"author": "Hendris Koya",
+	"background": {
+		"persistent": false,
+		"scripts": ["background.js"]
+	},
+
+    "content_scripts": [
+        {
+        "matches": [
+			"file:///*","http://pt.wikipedia.org/*","http://stackoverflow.com/*","http://www.infoq.com/*","http://www.theserverside.com/*"
+            ],
+        "js": ["global.js","content.js","jquery-2.1.3.js","util.js","content-script.js","div-translation.js","word-note.js","note-store.js","lib/buckets.js"],
+		"css": ["style.css"]
+        }
+    ], 
+
+	"options_page": "options.html",
+    "permissions": [
+		"storage","activeTab","tabs","<all_urls>"
+    ],
+	
+	"web_accessible_resources": [
+		"images/*.png"
+	]
+}

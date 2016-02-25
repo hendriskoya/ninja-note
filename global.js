@@ -1,0 +1,1 @@
+var g_DATA_STORE_NAME = 'NinjaNoteDataStore';

@@ -1,0 +1,74 @@
+.fixedElement {
+    background-color: #c0c0c0;
+    position: fixed;
+    top:300px;
+    z-index:100;
+}
+
+ul#menu {
+	margin: 0;
+	padding: 2px;
+	list-style-type: none;
+	background-color: #fade8b;
+}
+ul#menu li {
+	border-bottom:1px solid #a4a0f5; 
+}
+ul#menu li a:link {
+	text-decoration: none; 
+	font-family: Geneva, Arial, Helvetica, sans-serif; 
+	font-size: 14px; 
+	color: #5e0f50;
+}
+
+ul#menu li a:hover {
+	background-color: #FFE4B5;
+	color: #DAA520;
+	display: block;
+}
+
+ul#menu {
+	width:200px;
+	border:1px solid #003399; 
+}
+
+ul#menu li a:link, ul#menu li a:visited {
+	border-left:10px solid #EEC591; 
+	padding-left:5px;
+}
+ul#menu li a:link, ul#menu li a:visited {
+	display:block;
+	height:1%;
+}
+
+ul#menu li a:hover {
+	border-left:10px solid #FFD39B; 
+}
+
+.selectedWord {
+	background-color: yellow;
+}
+
+.highlight {
+	position: relative;
+	display: inline;
+	background-color: yellow;
+}
+.highlight-note {
+	position: absolute;
+	display: none;
+	top:20px;
+	left: 0px;
+	background-color: #ffcc55;
+}
+
+.highlight-flag {
+	position: absolute;
+	display: inline;
+	height: 10px;
+	width: 10px;
+	background-image: url('chrome-extension://__MSG_@@extension_id__/images/note-icon.png'); 
+	background-position: left top;
+	top: -5px;
+	right: -5px;
+}

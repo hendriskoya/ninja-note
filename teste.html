@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>Ninja Note Teste</title>
+<script src="lib/buckets.js"></script>
+<script src="jquery-2.1.3.js"></script>
+<script src="note-store.js"></script>
+</head>
+<body>
+
+<script>
+
+var selection = new Selection('earth');
+var annotation = selection.add(new Annotation('terra'));
+selection.add(new Annotation('planeta'));
+selection.add(new Annotation('terra'));
+
+console.log('quantidade de anotacoes: ' + selection.size());
+selection.remove(annotation.id);
+console.log('quantidade de anotacoes apos remocao: ' + selection.size());
+selection.forEach(function(key, value) {
+	console.log('key: ' + key + ', value: ' + value);
+});
+console.log('/------------------------/');
+var selectionList = new SelectionList('http://stackoverflow.com');
+console.log(selectionList.add(selection));
+console.log(selectionList.add(selection));
+
+var selection = new Selection('mars');
+selection.add(new Annotation('marte'));
+selection = selectionList.add(selection);
+console.log(selection);
+console.log(selection.size());
+selection.add(new Annotation('vermelho'));
+console.log(selection.size());
+console.log(selectionList.get(selection.id).size());
+selection = selectionList.get(selection.id);
+selection.forEach(function(key, value) {
+	console.log('key: ' + key + ', value: ' + value);
+});
+//console.log(JSON.stringify(selection));
+console.log(selection.toJSON());
+
+console.log(selectionList.toJSON());
+
+var data = '{"url":"http://stackoverflow.com","selections":[{"id":1,"description":"earth","annotations":[{"id":2,"description":"planeta"}]},{"id":2,"description":"mars","annotations":[{"id":1,"description":"marte"},{"id":2,"description":"vermelho"}]}]}';
+var obj = SelectionList.fromJSON(data);
+console.log(obj.toJSON());
+</script>
+
+</body>
+</html>
